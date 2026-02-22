@@ -28,3 +28,4 @@ def chat(req: ChatRequest):
     rows = rag_answer.retrieve(q)
     answer_text = rag_answer.answer(q, rows)
     return {"answer": answer_text}
+# trigger render redeploy
