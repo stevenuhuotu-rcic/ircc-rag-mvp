@@ -18,7 +18,9 @@ class ChatResponse(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok"}
-
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):
     q = req.question.strip()
