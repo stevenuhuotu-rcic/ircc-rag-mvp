@@ -83,7 +83,7 @@ def answer(query: str, rows):
         "If the sources do not support an answer, say so."
     )
 
-    user = f"""
+user = f"""
 Question:
 {query}
 
@@ -94,7 +94,7 @@ Instructions:
 - Answer in plain language.
 - Use bullet points.
 - Include a short 'Forms to submit' list if relevant.
-- End with a 'Sources' section listing the URLs you used.
+- DO NOT list or mention sources in the answer.
 """
 
     resp = client.responses.create(
