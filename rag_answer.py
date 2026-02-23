@@ -83,7 +83,7 @@ def answer(query: str, rows):
         "If the sources do not support an answer, say so."
     )
 
-user = f"""
+    user = f"""
 Question:
 {query}
 
