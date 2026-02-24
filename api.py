@@ -18,8 +18,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from typing import Optional, List, Dict
+
 class ChatRequest(BaseModel):
     question: str
+    history: Optional[List[Dict]] = None
 
 from typing import List
 
@@ -36,6 +39,7 @@ def healthz():
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):
     q = req.question.strip()
+    history = req.history or []
     if not q:
         return {"answer": "Please ask a question.", "sources": []}
 
